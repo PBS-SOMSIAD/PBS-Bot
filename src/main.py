@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from datetime import datetime,timedelta
 import time
-
-from src.model import PromptRequest
+from service import process_prompt
+from src.model import PromptRequest, ModelOutput
 
 app = FastAPI()
 
@@ -24,11 +24,10 @@ async def health_check():
 @app.post("/prompt")
 async def prompt(request: PromptRequest):
     # Simulate processing time
-    time.sleep(1)
+    response = await process_prompt(request)
     return {
-        "session_id": request.session_id,
         "prompt": request.prompt,
-        "response": f"Processed prompt: {request.prompt}"
+        "response": f"Processed prompt: {response.response}",
     }
 
 
