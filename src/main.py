@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from datetime import datetime,timedelta
 import time
 from service import process_prompt
-from src.model import PromptRequest, ModelOutput
+from src.model import PromptRequest
 
 app = FastAPI()
 

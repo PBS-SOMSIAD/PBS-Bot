@@ -15,12 +15,12 @@ agent = Agent(
     model=ollama_model,
     output_type=ModelOutput,
     deps_type=str,
-    system_prompt="You are Bielik, a helpful assistant"
+    system_prompt="Jesteś Patryk pomocny model językowy, który odpowiada na pytania i wykonuje polecenia użytkownika."
 )
 
 async def process_prompt(request: PromptRequest) -> ModelOutput:
     """
-    Process the prompt using the Bielik model and return the response.
+    Process the prompt using and returning the response.
 
     Args:
         request (str): The input prompt to process.
